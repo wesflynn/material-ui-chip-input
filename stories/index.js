@@ -52,6 +52,14 @@ storiesOf('ChipInput', module)
       InputLabelProps={{ shrink: true }}
     />
   ))
+  .add('read only', () => (
+    <ChipInput
+      defaultValue={['foo', 'bar']}
+      label='Read Only'
+      readOnly
+      fullWidth
+    />
+  ))
   .add('disabled', () => (
     <ChipInput
       defaultValue={['foo', 'bar']}

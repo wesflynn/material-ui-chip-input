@@ -509,6 +509,7 @@ class ChipInput extends React.Component {
       onAdd,
       onBlur,
       onDelete,
+      readOnly,
       onChange,
       onFocus,
       onKeyDown,
@@ -538,7 +539,7 @@ class ChipInput extends React.Component {
           value,
           text: dataSourceConfig ? chip[dataSourceConfig.text] : chip,
           chip,
-          isDisabled: !!disabled,
+          isDisabled: !!disabled?true:readOnly,
           isFocused: this.state.focusedChip === i,
           handleClick: () => this.setState({ focusedChip: i }),
           handleDelete: () => this.handleDeleteChip(chip, i),
@@ -612,6 +613,7 @@ class ChipInput extends React.Component {
               input: cx(classes.input, classes[variant]),
               root: cx(classes.inputRoot, classes[variant])
             }}
+            readOnly={this.props.readOnly}
             id={id}
             value={actualInputValue}
             onChange={this.handleUpdateInput}
